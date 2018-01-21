@@ -47,11 +47,11 @@ url = "http://live.amasupercross.com/xml/sx/RaceResultsWeb.xml?"
 info_url = "http://live.amasupercross.com/xml/sx/Announcements.json"
 race_info_url = 'http://live.amasupercross.com/xml/sx/RaceData.json?'
 
-bubble_dict = {('450','HEAT') : 4, ('450','SEMI') : 5, ('450','LAST CHANCE QUALIFIER') : 4,
+bubble_dict = {('450','HEAT') : 9, ('450','SEMI') : 5, ('450','LAST CHANCE QUALIFIER') : 4,
               ('250','HEAT') : 9, ('250', 'LAST CHANCE QUALIFIER') : 4, ('450', 'LCQ') : 4, ('250', 'LCQ') : 4}
 
 
-tweet_names_on_laps = [1,5,10,15,20]
+tweet_names_on_laps = [1, 3, 5, 7, 10, 12, 15, 18, 20, 23, 25]
 
 
 def get_lap_times():
@@ -160,9 +160,9 @@ def get_lap_times():
             if event_name != "MAIN":
                 bubble_pos = bubble_dict.get((class_name, event_name),-1)
                 #riders[bubble_pos-1].attrib['F'] = "(" + riders[bubble_pos-1].attrib['F'] + ")"
-                tweets.append('L' + lap + ' ' + helpers.get_ro(riders, "F", bubble_pos))
+                tweets.append('L' + lap + ' ' + helpers.get_ro(riders, "F", bubble_pos, sep='  '))
             else:
-                tweets.append('L' + lap + ' ' + helpers.get_ro(riders, "F", 10))
+                tweets.append('L' + lap + ' ' + helpers.get_ro(riders, "F", 10, sep='  '))
 
         last_lap = lap
 

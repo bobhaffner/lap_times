@@ -33,7 +33,7 @@ logging.getLogger().addHandler(stream_handler)
 
 top_x_dict = {0 : 10, 10 : 5, 15 : 3}
 positions_to_tweet = 22
-max_nr_attempts = 190
+max_nr_attempts = 290
 sleep_time = random.randint(12,16)
 exit_count = 0
 last_lap = "0"
@@ -210,7 +210,7 @@ def getlapTimes():
         if int(lap) in tweet_names_on_laps:
             tweets.append('L' + lap + ' ' + helpers.get_ro(riders, "F", 10))
 
-        if int(event_number) == 2:
+        if int(event_number) == 2:# and 1 == 2:
             tweets.append('L' + lap + ' ' + get_OA_tweet(riders, class_name))
 
         last_lap = lap
